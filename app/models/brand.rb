@@ -1,0 +1,4 @@
+class Brand < User
+
+end
+
