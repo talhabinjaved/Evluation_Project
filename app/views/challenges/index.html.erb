@@ -1,8 +1,12 @@
  <h1><%=  @brand.name%> Challenges</h1>
 <ul>
   <% @challenges.each do |challenge| %>
-    <li>
-      <%=  challenge.title %>
+    
+     <li>
+      <%= link_to challenge.title, challenge %>
     </li>
+
   <% end %>
 </ul>
+ <%= link_to "Create Challenge", '/challenges/new', :class => 'navbar-link'  %>
+

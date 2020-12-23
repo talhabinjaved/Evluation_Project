@@ -1,0 +1,12 @@
+<h1><%= @challenge.title %></h1>
+
+<p><%= @challenge.body %></p>
+
+<ul>
+ 
+ <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li> 
+
+  <li><%= link_to "Destroy", challenge_path(@challenge),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
