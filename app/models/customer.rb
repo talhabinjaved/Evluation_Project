@@ -1,3 +1,4 @@
 class Customer < User
+   
 
 end
