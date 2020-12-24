@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_113607) do
+ActiveRecord::Schema.define(version: 2020_12_24_104242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,18 @@ ActiveRecord::Schema.define(version: 2020_12_23_113607) do
     t.datetime "expiry_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "prize"
     t.index ["brand_id"], name: "index_challenges_on_brand_id"
+  end
+
+  create_table "tricks", force: :cascade do |t|
+    t.string "body"
+    t.bigint "customer_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_tricks_on_challenge_id"
+    t.index ["customer_id"], name: "index_tricks_on_customer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +51,6 @@ ActiveRecord::Schema.define(version: 2020_12_23_113607) do
   end
 
   add_foreign_key "challenges", "users", column: "brand_id"
+  add_foreign_key "tricks", "challenges"
+  add_foreign_key "tricks", "users", column: "customer_id"
 end

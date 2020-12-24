@@ -52,7 +52,7 @@ class ChallengesController < ApplicationController
 
       private
       def challenge_params
-        params.require(:challenge).permit(:title, :body,:expiry_date)
+        params.require(:challenge).permit(:title, :body,:prize,:expiry_date)
       end
 
 end
