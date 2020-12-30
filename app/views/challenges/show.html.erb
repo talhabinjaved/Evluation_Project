@@ -8,6 +8,7 @@
 <div>
 <%=video_tag(url_for(@challenge.video ),  size: "200x200", controls: true) if @challenge.video.attached?%>
 </div>
+<p>Prize <%= @challenge.prize %> $</p>
 <ul>
  
  <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li> 

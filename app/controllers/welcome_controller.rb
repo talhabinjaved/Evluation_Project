@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
   end
   
   def customer
+    @challenges=Challenge.all
     
   end
   
