@@ -17,7 +17,7 @@
       <p><%= challenge.body %></p>
 
       <div>
-      <%=image_tag(challenge.image ,size: "200x200") if challenge.image.attached?%>
+      <%=image_tag(challenge.image ,size: "200x200")  if challenge.image.attached?%>
       </div>
       <div>
       <%=video_tag(url_for(challenge.video ),  size: "200x200", controls: true) if challenge.video.attached?%>

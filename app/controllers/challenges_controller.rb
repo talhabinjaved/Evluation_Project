@@ -2,6 +2,7 @@ class ChallengesController < ApplicationController
   before_action :authenticate_brand!
 
   def show
+    byebug
     @brand=current_brand
     @challenge=@brand.challenges.find(params[:id])
 

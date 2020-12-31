@@ -2,7 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 
-# Require the gems listed in Gemfile, including any gems
+# Require the gems listed in Gemfile, including any gemss
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
@@ -10,6 +10,7 @@ module Myapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.active_storage.variant_processor = :vips
 
     # Configuration for the application, engines, and railties goes here.
     #
