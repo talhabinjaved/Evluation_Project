@@ -5,10 +5,12 @@ Rails.application.routes.draw do
 
   get 'welcome/index', to: 'welcome#index'
   get 'welcome/customer', to: 'welcome#customer'
+
   resources :challenges 
+  resources :tricks
 
+  devise_for :customers, :controllers => { :registrations => :registrations } 
 
-  devise_for :customers, :controllers => { :registrations => :registrations }
   devise_for :brands,    :controllers => { :registrations => :registrations }
 
 end

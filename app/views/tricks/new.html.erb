@@ -1,0 +1,26 @@
+<h1>Attempt Challenge</h1>
+
+<%= form_with model: @trick do |form| %>
+
+
+  <div>
+    <%= form.label :Body %><br>
+    <%= form.text_area :body %><br>
+  </div>
+
+
+   <div>
+    <%= form.label :Image %><br>
+    <%= form.file_field :image %><br>
+  </div>
+   <div>
+    <%= form.label :Video %><br>
+    <%= form.file_field :video %><br>
+  </div>
+  
+  <%= hidden_field_tag(:id, @challenge.id) %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

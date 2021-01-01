@@ -24,5 +24,7 @@
       </div>
        <p>Prize <%= challenge.prize %> $</p>
       </br>
+       <li><%= link_to "Attempt", new_trick_path(:id => challenge.id) %></li> 
+
 
      <% end %>
