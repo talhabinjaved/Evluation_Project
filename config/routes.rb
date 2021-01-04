@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 
   root to: "welcome#index"
 
-  get 'welcome/brand', to: 'welcome#brand' 
-  get 'welcome/customer', to: 'welcome#customer' 
+ 
 
   resources :challenges 
   resources :tricks
