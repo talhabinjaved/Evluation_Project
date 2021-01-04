@@ -7,14 +7,14 @@ class TricksController < ApplicationController
   
     # end
   
-    # def index
-    #   @brand=current_brand
-    #   @challenges=@brand.challenges.all
-    # end
+    def index
+      @challenges=Challenge.all.order("created_at")
+    
+    end
     
     def new
      @challenge=Challenge.find(params[:id])
-     @trick=Trick.new
+     @trick=Trick.find_or_initialize_by(challenge_id: params[:id], customer_id: current_customer.id)
     end
   
     def create
@@ -23,33 +23,24 @@ class TricksController < ApplicationController
       @challenge=Challenge.find(params[:id])
       @trick.challenge_id=@challenge.id
       if @trick.save
-        redirect_to '/welcome/customer'
+        redirect_to '/tricks'
       else
         render :new
       end
     end
   
-    # def edit
-    #   @challenge = Challenge.find(params[:id])
-    # end
   
-    # def update
-    #   @brand=current_brand
-    #   @challenge=@brand.challenges.find(params[:id])
+    def update
+      @customer=current_customer
+      @trick=@customer.tricks.find(params[:id])
+     
+      if @trick.update(trick_params)
+        redirect_to '/tricks'
+      else
+        render :new
+      end
+    end
   
-    #   if @challenge.update(challenge_params)
-    #     redirect_to '/challenges'
-    #   else
-    #     render :edit
-    #   end
-    # end
-  
-    # def destroy
-    #   @brand=current_brand
-    #   @challenge = @brand.challenges.find(params[:id])
-    #   @challenge.destroy
-    #   redirect_to '/challenges'
-    # end
     
   
         private

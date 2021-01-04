@@ -1,0 +1,21 @@
+
+<h1> Challenges to Solve </h1>
+
+<% @challenges.each do |challenge| %>
+    <h1> <%= challenge.brand.name %> </h1>
+    <h1><%= challenge.title %></h1>
+
+    <p><%= challenge.body %></p>
+
+    <div>
+    <%=image_tag(challenge.image ,size: "200x200")  if challenge.image.attached?%>
+    </div>
+    <div>
+    <%=video_tag(url_for(challenge.video ),  size: "200x200", controls: true) if challenge.video.attached?%>
+    </div>
+    <p> Prize <%= challenge.prize %> $</p>
+    </br>
+    <li><%= link_to "Attempt", new_trick_path(:id => challenge.id) %></li> 
+
+
+<% end %>

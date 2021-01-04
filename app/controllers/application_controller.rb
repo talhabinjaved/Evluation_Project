@@ -14,7 +14,7 @@ protected
     def after_sign_in_path_for(resource)
         stored_location_for(resource) ||
           if resource.is_a?(Brand)
-            '/welcome/index'
+            '/welcome/brand'
           elsif resource.is_a?(Customer)
             '/welcome/customer'
           end

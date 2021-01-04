@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>C&T</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
+  <% if brand_signed_in? %>
+    <%= render '/layouts/navbar-brand' %>
+
+  <% elsif customer_signed_in? %>
+    <%= render '/layouts/navbar-customer' %>
+  <% else %>
+    <%= render '/layouts/navbar' %>
+  <% end %>
+
+  
+
   <body>
-      <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
+  
+      <div class="jumbotron">
+        <%= yield %>
+      </div>
+   
+      <p class="notice alert alert-light" ><%= notice %></p>
+
+      <p class="alert alert alert-light" ><%= alert %></p>
+
+      
+      
+
   </body>
 </html>

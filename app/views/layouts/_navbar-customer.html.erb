@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+  <%= link_to "Challenges and Tricks", root_path ,:class => 'navbar-brand'  %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+      <li class="nav-item">
+          <li><%= link_to "Home", tricks_path(),:class => 'nav-link' %></li> 
+      </li>
+       <li class="nav-item ">
+       <li><%= link_to "Your Tricks", tricks_path(),:class => 'nav-link' %></li> 
+        
+      </li>
+      </ul>
+       <span class="navbar-text">
+        <%= link_to 'Edit Profile', edit_customer_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
+        </span>
+  
+  </div>
+</nav>
