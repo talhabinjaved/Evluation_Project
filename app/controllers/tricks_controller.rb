@@ -1,16 +1,12 @@
 class TricksController < ApplicationController
     before_action :authenticate_customer!
 
-    # def show
-    #   @customer=current_customer
-    #   @challenge=@brand.challenges.find(params[:id])
-  
-    # end
+
   
     def index
      
       @challenges=Challenge.where('expiry_date >= ?', DateTime.now) 
-     
+      @
     
     end
     

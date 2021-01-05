@@ -1,0 +1,22 @@
+<h1> Give reward to users</h1>
+<ul>
+  <% @tricks.each do |trick| %>
+  
+
+            <%= trick.challenge.title %>
+             </br>
+            
+            <%= trick.body %>
+                </br>
+
+            <%= trick.customer.email %>
+                </br>
+
+
+
+</br>
+ </br>
+
+  <% end %>
+</ul>
+

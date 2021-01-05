@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root to: "welcome#index"
   get 'user/tricks', to: 'tricks#user_tricks'
+  get 'challenges/rewards', to: 'challenges#reward'
 
  
 
