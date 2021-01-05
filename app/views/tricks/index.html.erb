@@ -2,10 +2,10 @@
 <h1> Challenges to Solve </h1>
 
 <% @challenges.each do |challenge| %>
-    <h1> <%= challenge.brand.name %> </h1>
-    <h1><%= challenge.title %></h1>
+    <h2> Brand Name  <span> <%= challenge.brand.name %></span> </h2> 
+    <h2>Challenge Title: <span>  <%= challenge.title %></span> </h2> 
 
-    <p><%= challenge.body %></p>
+    <h2>Challenge Discription: <span>  <%= challenge.body %></span> </h2> 
 
     <div>
     <%=image_tag(challenge.image ,size: "200x200")  if challenge.image.attached?%>
@@ -13,9 +13,13 @@
     <div>
     <%=video_tag(url_for(challenge.video ),  size: "200x200", controls: true) if challenge.video.attached?%>
     </div>
-    <p> Prize <%= challenge.prize %> $</p>
-    </br>
+    <h2>Prize: <span>  <%= challenge.prize %> $</span> </h2> 
+     <h2> Expiry Date & Time: <span> <%= challenge.expiry_date %> </span> </h2> 
+
+  
     <li><%= link_to "Attempt", new_trick_path(:id => challenge.id) %></li> 
+      </br>
+    </br>
 
 
 <% end %>

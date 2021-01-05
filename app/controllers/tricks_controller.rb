@@ -8,7 +8,9 @@ class TricksController < ApplicationController
     # end
   
     def index
-      @challenges=Challenge.all.order("created_at")
+     
+      @challenges=Challenge.where('expiry_date >= ?', DateTime.now) 
+     
     
     end
     
@@ -41,6 +43,10 @@ class TricksController < ApplicationController
       end
     end
   
+    def user_tricks
+      @customer=current_customer
+      @tricks=@customer.tricks.all
+    end
     
   
         private

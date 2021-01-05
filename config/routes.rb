@@ -3,6 +3,7 @@ Rails.application.routes.draw do
    # get ':controller(/:action(/:id(.:format)))'
 
   root to: "welcome#index"
+  get 'user/tricks', to: 'tricks#user_tricks'
 
  
 
