@@ -49,12 +49,7 @@ class ChallengesController < ApplicationController
     redirect_to '/challenges'
   end
 
-  def reward
-    @brand=current_brand
-    @challenges=Challenge.where('expiry_date < ?', DateTime.now) 
-
-    @tricks=@brand.tricks.where(challenge_id:@challenges.ids) 
-  end
+ 
 
 
       private

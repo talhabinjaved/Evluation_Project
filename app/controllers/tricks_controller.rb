@@ -5,8 +5,7 @@ class TricksController < ApplicationController
   
     def index
      
-      @challenges=Challenge.where('expiry_date >= ?', DateTime.now) 
-      @
+      @challenges=Challenge.where('expiry_date > ?', DateTime.now) 
     
     end
     

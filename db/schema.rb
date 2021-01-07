@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_140003) do
+ActiveRecord::Schema.define(version: 2021_01_07_131826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,17 @@ ActiveRecord::Schema.define(version: 2020_12_29_140003) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "prize"
+    t.boolean "is_complete", default: false
     t.index ["brand_id"], name: "index_challenges_on_brand_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.bigint "trick_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_rewards_on_challenge_id"
+    t.index ["trick_id"], name: "index_rewards_on_trick_id"
   end
 
   create_table "tricks", force: :cascade do |t|
@@ -82,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_12_29_140003) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "challenges", "users", column: "brand_id"
+  add_foreign_key "rewards", "challenges"
+  add_foreign_key "rewards", "tricks"
   add_foreign_key "tricks", "challenges"
   add_foreign_key "tricks", "users", column: "customer_id"
 end
