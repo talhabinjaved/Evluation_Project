@@ -1,10 +1,15 @@
- <h1> Your Challenges</h1>
+ <h1> MY Challenges</h1>
 <ul>
   <% @challenges.each do |challenge| %>
     
      <li>
       <%= link_to challenge.title, challenge %>
+      <%  if challenge.is_complete == true %>
+      <span> <strong>Completed</strong></span>
+      <% end %>
+      
     </li>
+    
 
   <% end %>
 </ul>

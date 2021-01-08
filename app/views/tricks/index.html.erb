@@ -1,25 +1,40 @@
 
-<h1> Challenges to Solve </h1>
-
+<h1> Challenges </h1>
+<ul>
 <% @challenges.each do |challenge| %>
-    <h2> Brand Name  <span> <%= challenge.brand.name %></span> </h2> 
-    <h2>Challenge Title: <span>  <%= challenge.title %></span> </h2> 
 
-    <h2>Challenge Discription: <span>  <%= challenge.body %></span> </h2> 
+       <div> <strong> Brand Name: </strong>
+             <%=  challenge.brand.name %>
+        </div>
+        <div> <strong> Challenge Title:  </strong>
+         <%=  challenge.title %> 
+             
+        </div>
+           
+        <div> <strong> Prize:  </strong>
+         <%=  challenge.prize %> $
+             
+        </div>
 
-    <div>
-    <%=image_tag(challenge.image ,size: "200x200")  if challenge.image.attached?%>
-    </div>
-    <div>
-    <%=video_tag(url_for(challenge.video ),  size: "200x200", controls: true) if challenge.video.attached?%>
-    </div>
-    <h2>Prize: <span>  <%= challenge.prize %> $</span> </h2> 
-     <h2> Expiry Date & Time: <span> <%= challenge.expiry_date %> </span> </h2> 
+         <div> <strong> Expiry Date :  </strong>
+             <%= challenge.expiry_date %>
+             
+        </div>
 
-  
-    <li><%= link_to "Attempt", new_trick_path(:id => challenge.id) %></li> 
-      </br>
-    </br>
+        <div>  <strong> Challenge Discription: </strong>
+             <%= challenge.body %>
+              <div>
+               <%=image_tag(challenge.image ,size: "200x200")  if challenge.image.attached?%>
+               <%=video_tag(url_for(challenge.video ),  size: "200x200", controls: true) if challenge.video.attached?%>
+               </div>
+        </div>
+        </br>
+        <%= link_to "Attempt", new_trick_path(:id => challenge.id), :class => "btn btn-primary" %>
+
+        </br>
+        </br>
+
 
 
 <% end %>
+</ul>

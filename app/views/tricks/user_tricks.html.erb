@@ -1,18 +1,17 @@
 
 <% @tricks.each do |trick| %>
-    <h2> Challenge Title:  <%= trick.challenge.title %> </h2>
 
-    <h2>Your Trick: </h2>
-    <%= trick.body %>
-    <div>
-    <%=image_tag(trick.image ,size: "200x200")  if trick.image.attached?%>
-    </div>
-    <div>
-    <%=video_tag(url_for(trick.video ),  size: "200x200", controls: true) if trick.video.attached?%>
-    </div>
-
- 
- </br>
- </br>
+          <div> <strong> Challenge Name: </strong>
+             <%= trick.challenge.title %>
+        </div>
+           
+        <div>  <strong> Your Trick: </strong>
+              <%= trick.body %>
+              <div>
+               <%=image_tag(trick.image ,size: "200x200")  if trick.image.attached?%>
+               <%=video_tag(url_for(trick.video ),  size: "200x200", controls: true) if trick.video.attached?%>
+               </div>
+        </div>
+          </br>
 
 <% end %>

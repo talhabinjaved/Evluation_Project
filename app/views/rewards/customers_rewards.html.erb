@@ -1,25 +1,23 @@
-<h1> Your tricks Which won rewards</h1>
+<h1> Successful Tricks</h1>
 <ul>
   <% @rewards.each do |reward| %>
-  
 
-            <%= reward.challenge.title %>
-             </br>
-            
-            <%= reward.trick.body %>
-                </br>
-             <div>
-    <%=image_tag(reward.trick.image ,size: "200x200")  if reward.trick.image.attached?%>
-    </div>
-    <div>
-    <%=video_tag(url_for(reward.trick.video ),  size: "200x200", controls: true) if reward.trick.video.attached?%>
-    </div>
+       <div> <strong> Challenge Name: </strong>
+             <%=  reward.challenge.title %>
+        </div>
+           
+        <div> <strong> Reward:  </strong>
+         <%=  reward.challenge.prize %> $
+             
+        </div>
 
-
-
-
-
-</br>
+        <div>  <strong> User Trick: </strong>
+              <%=   reward.trick.body %>
+              <div>
+               <%=image_tag(reward.trick.image ,size: "200x200")  if reward.trick.image.attached?%>
+               <%=video_tag(url_for(reward.trick.video ),  size: "200x200", controls: true) if reward.trick.video.attached?%>
+               </div>
+        </div>
  </br>
 
   <% end %>

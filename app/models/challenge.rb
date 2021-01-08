@@ -3,9 +3,11 @@ class Challenge < ApplicationRecord
   validates :body, presence: true, length: { minimum: 10 }
   validates :prize, presence: true
   validates :expiry_date, presence: true
+  
   belongs_to :brand
-  has_many :tricks
+  has_many :tricks, dependent: :destroy
   has_many :customers, through: :tricks
-  has_one_attached :image
-  has_one_attached :video
+  has_one :reward, dependent: :destroy
+  has_one_attached :image, dependent: :destroy
+  has_one_attached :video, dependent: :destroy
 end
