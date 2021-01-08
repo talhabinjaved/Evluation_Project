@@ -1,0 +1,21 @@
+<h1> Your tricks Which won rewards</h1>
+<ul>
+  <% @rewards.each do |reward| %>
+  
+
+            <%= reward.challenge.title %>
+             </br>
+            
+            <%= reward.trick.body %>
+                </br>
+
+
+
+
+
+</br>
+ </br>
+
+  <% end %>
+</ul>
+

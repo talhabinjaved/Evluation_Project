@@ -1,5 +1,5 @@
 class RewardsController < ApplicationController
-    before_action :authenticate_brand!
+    # before_action :authenticate_brand!
     def users_tricks
         @brand=current_brand
         @challenges=Challenge.where('expiry_date < ?', DateTime.now ).where(is_complete: false) 
@@ -13,6 +13,12 @@ class RewardsController < ApplicationController
         @challenge.is_complete=true
         @challenge.save
         redirect_to root_path
+      end
+
+      def customers_rewards
+          @customer=current_customer
+          @tricks=@customer.tricks.all
+          @rewards=Reward.where(trick_id: @tricks.ids)
       end
 
 

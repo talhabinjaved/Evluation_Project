@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'user/tricks', to: 'tricks#user_tricks'
   get 'rewards/users_tricks', to: 'rewards#users_tricks'
   get 'rewards/give_rewards', to: 'rewards#give_rewards'
+  get 'rewards/customers_rewards', to: 'rewards#customers_rewards'
 
  
 
