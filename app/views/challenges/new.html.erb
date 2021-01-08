@@ -4,21 +4,34 @@
   <div>
     <%= form.label :Title %><br>
     <%= form.text_field :title %>
+    <%= @challenge.errors.full_messages_for(:title).each do |message| %>
+     <div><%= message %></div>
+     <% end %>
   </div>
 
   <div>
     <%= form.label :Body %><br>
     <%= form.text_area :body %><br>
+    <%= @challenge.errors.full_messages_for(:body).each do |message| %>
+     <div><%= message %></div>
+    <% end %>
   </div>
     <div>
     <%= form.label :Prize %><br>
     <%= form.number_field :prize %><br>
+    <%= @challenge.errors.full_messages_for(:prize).each do |message| %>
+     <div><%= message %></div>
+    <% end %>
+
   </div>
   
 
  <div>
     <%= form.label :Expiry_Date %><br>
     <%= form.datetime_field :expiry_date %><br>
+    <%= @challenge.errors.full_messages_for(:expiry_date).each do |message| %>
+     <div><%= message %></div>
+    <% end %>
   </div>  
 
    <div>

@@ -1,5 +1,8 @@
 class RewardsController < ApplicationController
-    # before_action :authenticate_brand!
+    before_action :authenticate_brand!, only: [:users_tricks,:give_rewards]
+    before_action :authenticate_customer!, only: [:customers_rewards]
+
+
     def users_tricks
         @brand=current_brand
         @challenges=Challenge.where('expiry_date < ?', DateTime.now ).where(is_complete: false) 

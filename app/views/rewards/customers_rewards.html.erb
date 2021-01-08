@@ -8,6 +8,12 @@
             
             <%= reward.trick.body %>
                 </br>
+             <div>
+    <%=image_tag(reward.trick.image ,size: "200x200")  if reward.trick.image.attached?%>
+    </div>
+    <div>
+    <%=video_tag(url_for(reward.trick.video ),  size: "200x200", controls: true) if reward.trick.video.attached?%>
+    </div>
 
 
 
