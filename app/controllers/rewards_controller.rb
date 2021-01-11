@@ -6,8 +6,8 @@ class RewardsController < ApplicationController
     def users_tricks
         @brand=current_brand
         @challenges=Challenge.where('expiry_date < ?', DateTime.now ).where(is_complete: false) 
-    
         @tricks=@brand.tricks.where(challenge_id:@challenges.ids) 
+        
       end
 
       def give_rewards
