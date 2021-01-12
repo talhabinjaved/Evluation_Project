@@ -28,7 +28,11 @@ class ChallengesController < ApplicationController
   end
 
   def edit
+
     @challenge = Challenge.find(params[:id])
+    if @challenge.is_complete==true
+       redirect_to '/challenges'
+    end
   end
 
   def update

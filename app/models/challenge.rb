@@ -10,4 +10,6 @@ class Challenge < ApplicationRecord
   has_one :reward, dependent: :destroy
   has_one_attached :image, dependent: :destroy
   has_one_attached :video, dependent: :destroy
+
+  scope :incomplete_challenges, -> { where(is_complete: false)}
 end
