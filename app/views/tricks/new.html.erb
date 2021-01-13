@@ -6,9 +6,11 @@
   <div>
     <%= form.label :Body %><br>
     <%= form.text_area :body %><br>
+    <% if @trick.errors.any? %>
     <%= @trick.errors.full_messages_for(:body).each do |message| %>
      <div><%= message %></div>
     <% end %>
+    <%end%>
 
   </div>
 

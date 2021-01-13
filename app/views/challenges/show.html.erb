@@ -1,16 +1,26 @@
 
-<h1><%= @challenge.title %></h1>
+        <div> <strong> Challenge Title:  </strong>
+         <%=  @challenge.title %> 
+             
+        </div>
+           
+        <div> <strong> Prize:  </strong>
+         <%=  @challenge.prize %> $
+             
+        </div>
 
-<p><%= @challenge.body %></p>
+         <div> <strong> Expiry Date :  </strong>
+             <%= @challenge.expiry_date %>
+             
+        </div>
 
-<div>
-<%=image_tag(@challenge.image ,size: "200x200") if @challenge.image.attached?%>
-</div>
-<div>
-<%=video_tag(url_for(@challenge.video ),  size: "200x200", controls: true) if @challenge.video.attached?%>
-</div>
-<p>Prize <%= @challenge.prize %> $</p>
-<ul>
+        <div>  <strong> Challenge Discription: </strong>
+             <%= @challenge.body %>
+              <div>
+               <%=image_tag(@challenge.image ,size: "200x200")  if @challenge.image.attached?%>
+               <%=video_tag(url_for(@challenge.video ),  size: "200x200", controls: true) if @challenge.video.attached?%>
+               </div>
+        </div>
  
  <li><%= link_to "Edit", edit_challenge_path(@challenge) %></li> 
 

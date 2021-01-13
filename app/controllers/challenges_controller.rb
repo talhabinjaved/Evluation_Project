@@ -53,8 +53,6 @@ class ChallengesController < ApplicationController
     redirect_to '/challenges'
   end
 
- 
-
 
       private
       def challenge_params
