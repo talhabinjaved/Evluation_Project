@@ -11,6 +11,7 @@ module Myapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.active_storage.variant_processor = :vips
+    config.time_zone = "Islamabad"
 
     # Configuration for the application, engines, and railties goes here.
     #

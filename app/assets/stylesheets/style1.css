@@ -1,4 +1,7 @@
-h1
-{
-    color:rgb(151, 100, 23);
+h1 {
+    color: rgb(151, 100, 23);
+}
+
+strong {
+    color: rgb(14, 166, 226);
 }
